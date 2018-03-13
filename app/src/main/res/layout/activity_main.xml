@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#1ba3c6"
+            android:gravity="center_vertical"
+            android:onClick="td"
+            android:text="Today's Data"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Weekly Data"
+            android:gravity="center_vertical"
+            android:background="#49c66a"
+            android:textColor="#ffffff"
+            android:onClick="wk"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Condition Analysis"
+            android:gravity="center_vertical"
+            android:background="#f7f06b"
+            android:textColor="#1d1b1b"
+            android:onClick="ca"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Agronomist Suggetion"
+            android:gravity="center_vertical"
+            android:background="#da7c42"
+            android:textColor="#ffffff"
+            android:onClick="as"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</LinearLayout>
