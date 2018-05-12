@@ -18,20 +18,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DailyActivity"
-            android:label="Daily Node Data"/>
-        <activity android:name=".weekly"
-            android:label="Weekly Node Data"/>
-        <activity android:name=".Agnomist"
-            android:label="Agronomist Suggestions"/>
-        <activity android:name=".ConditionAnalysis"
-            android:label="Condition Analysis"/>
-        <activity android:name=".temp"
-            android:label="Temperature Condition"/>
-        <activity android:name=".Humidity"
-            android:label="Humidity Condition"/>
-        <activity android:name=".Moisture"
-            android:label="Moisture Condition"/>
+        <activity
+            android:name=".DailyActivity"
+            android:label="Daily Node Data" />
+        <activity
+            android:name=".weekly"
+            android:label="Weekly Node Data" />
+        <activity
+            android:name=".Agnomist"
+            android:label="Agronomist Suggestions" />
+        <activity
+            android:name=".ConditionAnalysis"
+            android:label="Condition Analysis" />
+        <activity
+            android:name=".temp"
+            android:label="Temperature Condition" />
+        <activity
+            android:name=".Humidity"
+            android:label="Humidity Condition" />
+        <activity
+            android:name=".Moisture"
+            android:label="Moisture Condition" />
+        <activity android:name=".ManualSensorData"></activity>
     </application>
 
 </manifest>
