@@ -33,20 +33,22 @@ import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 public class ConditionAnalysis extends AppCompatActivity {
 
 
-    public static int tm;
-    public static int hu;
-    public static int mo;
+    public static int ambient;
+    public static int humidity;
+    public static int moisture;
+    public static int soil_temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_condition_analysis);
 
-        final TextView t = (TextView) findViewById(R.id.tempr);
-        final TextView h = (TextView) findViewById(R.id.Humidi);
-        final TextView m = (TextView) findViewById(R.id.mos);
-        final TextView reques= (TextView) findViewById(R.id.controlmotor);
-        final TextView cs= (TextView) findViewById(R.id.oc);
+        final TextView ambient_view = (TextView) findViewById(R.id.tempr);
+        final TextView humidity_view = (TextView) findViewById(R.id.Humidi);
+        final TextView moisture_view = (TextView) findViewById(R.id.mos);
+        final TextView soil_temp_view = (TextView) findViewById(R.id.soil_temp);
+//        final TextView reques= (TextView) findViewById(R.id.controlmotor);
+//        final TextView cs= (TextView) findViewById(R.id.oc);
 
 
 
@@ -65,22 +67,25 @@ public class ConditionAnalysis extends AppCompatActivity {
 
 
 
-                                            tm = feed.getInt("t");
-                                            hu = feed.getInt("h");
-                                            mo = feed.getInt("m");
+                                            ambient = feed.getInt("ambient");
+                                            humidity = feed.getInt("humidity");
+                                            moisture = feed.getInt("moisture");
+                                            soil_temp = feed.getInt("soil_temp");
                                             String requ= feed.getString("rs");
                                             String css= feed.getString("cs");
-                                            reques.setText(requ);
-                                            cs.setText(css);
+//                                            reques.setText(requ);
+//                                            cs.setText(css);
 
 
-                                            String tmv = String.valueOf(tm);
-                                            String huv = String.valueOf(hu);
-                                            String mov = String.valueOf(mo);
+                                            String tmv = String.valueOf(ambient);
+                                            String huv = String.valueOf(humidity);
+                                            String mov = String.valueOf(moisture);
+                                            String soilT = String.valueOf(soil_temp);
 
-                                            t.setText(tmv);
-                                            h.setText(huv);
-                                            m.setText(mov);
+                                            ambient_view.setText(tmv);
+                                            humidity_view.setText(huv);
+                                            moisture_view.setText(mov);
+                                            soil_temp_view.setText(soilT);
 
 
                                             loading.dismiss();
@@ -126,119 +131,119 @@ public class ConditionAnalysis extends AppCompatActivity {
 
 
     public void as(View view){
-        Intent i=new Intent(this,Agnomist.class);
+        Intent i=new Intent(this,ManualSensorData.class);
         startActivity(i);
     }
 
 
-    public void motorcontroller(View view){
-        final TextView c= (TextView) findViewById(R.id.controlmotor);
-        final TextView motorconditon = (TextView) findViewById(R.id.oc);
-        final String state=c.getText().toString();
-        final String cstate=motorconditon.getText().toString();
-
-
-        RequestQueue queue = Volley.newRequestQueue(ConditionAnalysis.this);
-        String u = "https://kohinurjosna.pythonanywhere.com/irrigation/default/post_state";
-
-        final ProgressDialog loading = ProgressDialog.show(ConditionAnalysis.this,"Wating...","for motor response...",false,false);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, u,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Do something with the response
-                        loading.dismiss();
-                        Log.v(TAG,"Response: "+response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Handle error
-                        loading.dismiss();
-                        Log.v(TAG,"Response: "+ error);
-
-
-                        Toast.makeText(ConditionAnalysis.this,"Something Wrong. Please Check the Internet Connection",Toast.LENGTH_LONG).show();
-
-                    }
-                }){
-            //adding parameters to the request
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("state", state);
-                params.put("cstate", cstate);
-                return params;
-            }
-        };
-
-        MySingleton.getInstance(ConditionAnalysis.this).addTorequestrue(stringRequest);
-
-
-
-
-
-
-
-
-
-
-
-
-
-        String z = "https://kohinurjosna.pythonanywhere.com/irrigation/default/motorcontrol.json";
-        final ProgressDialog load = ProgressDialog.show(ConditionAnalysis.this, "Loading Motor Response", "Please wait", false, false);
-        JsonObjectRequest jsObRequest = new JsonObjectRequest
-                (Request.Method.GET, z, null,
-                        new Response.Listener<JSONObject>() {
-
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-
-
-                                    JSONObject feed = response.getJSONObject("feeds");
-
-
-
-                                    String state= feed.getString("requested_state");
-                                    Log.v("Requested state: ",state);
-
-
-
-
-
-                                    load.dismiss();
-
-                                    Intent intent = getIntent();
-                                    finish();
-                                    startActivity(intent);
-
-
-
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                    Log.v("Exception","Error");
-
-                                    loading.dismiss();
-                                }
-                            }
-                        }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO Auto-generated method stub
-                        load.dismiss();
-                        Toast.makeText(ConditionAnalysis.this, "Json Loading error", Toast.LENGTH_LONG).show();
-
-                    }
-                });
-        MySingleton.getInstance(ConditionAnalysis.this).addTorequestrue(jsObRequest);
-
-    }
+//    public void motorcontroller(View view){
+//        final TextView c= (TextView) findViewById(R.id.controlmotor);
+//        final TextView motorconditon = (TextView) findViewById(R.id.oc);
+//        final String state=c.getText().toString();
+//        final String cstate=motorconditon.getText().toString();
+//
+//
+//        RequestQueue queue = Volley.newRequestQueue(ConditionAnalysis.this);
+//        String u = "https://kohinurjosna.pythonanywhere.com/irrigation/default/post_state";
+//
+//        final ProgressDialog loading = ProgressDialog.show(ConditionAnalysis.this,"Wating...","for motor response...",false,false);
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, u,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        // Do something with the response
+//                        loading.dismiss();
+//                        Log.v(TAG,"Response: "+response);
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        // Handle error
+//                        loading.dismiss();
+//                        Log.v(TAG,"Response: "+ error);
+//
+//
+//                        Toast.makeText(ConditionAnalysis.this,"Something Wrong. Please Check the Internet Connection",Toast.LENGTH_LONG).show();
+//
+//                    }
+//                }){
+//            //adding parameters to the request
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                params.put("state", state);
+//                params.put("cstate", cstate);
+//                return params;
+//            }
+//        };
+//
+//        MySingleton.getInstance(ConditionAnalysis.this).addTorequestrue(stringRequest);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//        String z = "https://kohinurjosna.pythonanywhere.com/irrigation/default/motorcontrol.json";
+//        final ProgressDialog load = ProgressDialog.show(ConditionAnalysis.this, "Loading Motor Response", "Please wait", false, false);
+//        JsonObjectRequest jsObRequest = new JsonObjectRequest
+//                (Request.Method.GET, z, null,
+//                        new Response.Listener<JSONObject>() {
+//
+//                            @Override
+//                            public void onResponse(JSONObject response) {
+//                                try {
+//
+//
+//                                    JSONObject feed = response.getJSONObject("feeds");
+//
+//
+//
+//                                    String state= feed.getString("requested_state");
+//                                    Log.v("Requested state: ",state);
+//
+//
+//
+//
+//
+//                                    load.dismiss();
+//
+//                                    Intent intent = getIntent();
+//                                    finish();
+//                                    startActivity(intent);
+//
+//
+//
+//
+//                                } catch (JSONException e) {
+//                                    e.printStackTrace();
+//                                    Log.v("Exception","Error");
+//
+//                                    loading.dismiss();
+//                                }
+//                            }
+//                        }, new Response.ErrorListener() {
+//
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        // TODO Auto-generated method stub
+//                        load.dismiss();
+//                        Toast.makeText(ConditionAnalysis.this, "Json Loading error", Toast.LENGTH_LONG).show();
+//
+//                    }
+//                });
+//        MySingleton.getInstance(ConditionAnalysis.this).addTorequestrue(jsObRequest);
+//
+//    }
 
 
 

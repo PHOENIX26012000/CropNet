@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Humidity extends AppCompatActivity {
+public class ambient extends AppCompatActivity {
     ListView list;
     feedAdapter adapter;
     ArrayList<shortfeed> feedlist;
@@ -27,19 +27,19 @@ public class Humidity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_humidity);
-        list=(ListView) findViewById(R.id.humit);
+        setContentView(R.layout.activity_ambient);
+        list=(ListView) findViewById(R.id.ambient);
         feedlist = new ArrayList<shortfeed>();
         Bundle extra = getIntent().getExtras();
         final int Id =extra.getInt("id");
 
-        if (Id==12){
-            url ="https://kohinurjosna.pythonanywhere.com/irrigation/default/humidity.json";
-        }else if (Id==22){
-            url ="https://kohinurjosna.pythonanywhere.com/irrigation/default/whumidity.json";
+        if (Id==31){
+            url ="https://kohinurjosna.pythonanywhere.com/irrigation/default/ambient.json";
+        }else if (Id==32){
+            url ="https://kohinurjosna.pythonanywhere.com/irrigation/default/wambient.json";
         }
 
-        final ProgressDialog loading = ProgressDialog.show(Humidity.this,"Loading Feeds","Please wait",false,false);
+        final ProgressDialog loading = ProgressDialog.show(ambient.this,"Loading Feeds","Please wait",false,false);
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url,null,
@@ -57,7 +57,7 @@ public class Humidity extends AppCompatActivity {
 
                                             f.setDate(feed.getString("ptime"));
                                             f.setNode(feed.getString("node"));
-                                            f.setNodevalue(feed.getString("humidity"));
+                                            f.setNodevalue(feed.getString("ambient_temp"));
 
                                             feedlist.add(f);
 
@@ -67,7 +67,7 @@ public class Humidity extends AppCompatActivity {
                                             loading.dismiss();
                                         }
                                     }else {
-                                        Toast.makeText(Humidity.this,"Sorry,no data found",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ambient.this,"Sorry,no data found",Toast.LENGTH_LONG).show();
                                         loading.dismiss();
                                     }
                                 } catch (JSONException e) {
@@ -80,13 +80,13 @@ public class Humidity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         loading.dismiss();
-                        Toast.makeText(Humidity.this,"An unexpected error occurred",Toast.LENGTH_LONG).show();
+                        Toast.makeText(ambient.this,"An unexpected error occurred",Toast.LENGTH_LONG).show();
 
                     }
                 });
 
 // Access the RequestQueue through your singleton class.
-        MySingleton.getInstance(Humidity.this).addTorequestrue(jsObjRequest);
+        MySingleton.getInstance(ambient.this).addTorequestrue(jsObjRequest);
 
 
 

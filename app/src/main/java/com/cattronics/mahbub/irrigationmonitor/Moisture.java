@@ -54,20 +54,25 @@ public class Moisture extends AppCompatActivity {
                             public void onResponse(JSONObject response) {
                                 try {
                                     JSONArray feedjson=response.getJSONArray("feeds");
-                                    for(int i=0;i<feedjson.length();i++){
+                                    if(feedjson.length() > 0) {
+                                        for (int i = 0; i < feedjson.length(); i++) {
 
-                                        shortfeed f=new shortfeed();
-                                        JSONObject feed= feedjson.getJSONObject(i);
+                                            shortfeed f = new shortfeed();
+                                            JSONObject feed = feedjson.getJSONObject(i);
 
-                                        f.setDate(feed.getString("ptime"));
-                                        f.setNode(feed.getString("node"));
-                                        f.setNodevalue(feed.getString("mosture"));
+                                            f.setDate(feed.getString("ptime"));
+                                            f.setNode(feed.getString("node"));
+                                            f.setNodevalue(feed.getString("mosture"));
 
-                                        feedlist.add(f);
+                                            feedlist.add(f);
 
 
-                                        feedAdapter adapter=new feedAdapter(getApplicationContext(),R.layout.feedlist,feedlist);
-                                        list.setAdapter(adapter);
+                                            feedAdapter adapter = new feedAdapter(getApplicationContext(), R.layout.feedlist, feedlist);
+                                            list.setAdapter(adapter);
+                                            loading.dismiss();
+                                        }
+                                    }else {
+                                        Toast.makeText(Moisture.this,"Sorry,no data found",Toast.LENGTH_LONG).show();
                                         loading.dismiss();
                                     }
                                 } catch (JSONException e) {

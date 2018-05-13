@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -17,12 +16,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Tempareture"
+            android:text="Autometic"
             android:gravity="center_vertical"
             android:background="#760d6d"
             android:textColor="#ffffff"
             android:textSize="18dp"
-            android:onClick="temp"
             android:textAlignment="center"
             android:layout_height="match_parent" />
 
@@ -38,31 +36,10 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Humidity"
+            android:text="Scheduled"
             android:gravity="center_vertical"
             android:background="#49c66a"
             android:textColor="#ffffff"
-            android:onClick="Hu"
-            android:textSize="18dp"
-            android:textAlignment="center"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="Moisture"
-            android:gravity="center_vertical"
-            android:background="#f7f06b"
-            android:textColor="#1d1b1b"
-            android:onClick="mo"
             android:textSize="18dp"
             android:textAlignment="center"
             android:layout_height="match_parent" />
@@ -79,11 +56,10 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Ambient Temperature"
+            android:text="Force Stop"
             android:gravity="center_vertical"
             android:background="#bf6211"
             android:textColor="#ffffff"
-            android:onClick="ambient"
             android:textSize="18dp"
             android:textAlignment="center"
             android:layout_height="match_parent" />

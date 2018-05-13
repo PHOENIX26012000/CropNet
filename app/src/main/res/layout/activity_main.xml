@@ -84,7 +84,7 @@
             android:gravity="center_vertical"
             android:background="#da7c42"
             android:textColor="#ffffff"
-            android:onClick="as"
+            android:onClick="control"
             android:textSize="18dp"
             android:textAlignment="center"
             android:layout_height="match_parent" />

@@ -32,14 +32,25 @@
             android:label="Condition Analysis" />
         <activity
             android:name=".temp"
-            android:label="Temperature Condition" />
+            android:label="Soil Teperature" />
         <activity
             android:name=".Humidity"
             android:label="Humidity Condition" />
         <activity
             android:name=".Moisture"
             android:label="Moisture Condition" />
-        <activity android:name=".ManualSensorData"></activity>
+        <activity
+            android:name=".ManualSensorData"
+            android:label="PH Sensor Data"
+            />
+        <activity
+            android:name=".ambient"
+            android:label="Ambient Temperature"
+            />
+        <activity
+            android:name=".Controll"
+            android:label="Irrigation Control"
+            ></activity>
     </application>
 
 </manifest>
