@@ -1,5 +1,5 @@
 # CropNet
-CropNet is an IoT App which is developed for the farmers in order to provide Precicion farming.
+CropNet is an IoT App which is developed for the farmers in order to provide Precision farming.
 This app is developed as an addon of precision farming using WSN.
 The App provides the following Facilities:
 
