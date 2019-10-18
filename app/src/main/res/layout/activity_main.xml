@@ -1,30 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorButtonNormal"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="3"
+        android:onClick="td"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_weight="2"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:padding="26dp"
+            android:src="@drawable/data_today"
+            android:textAlignment="center"
+            android:textColor="#1ba3c6" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#1ba3c6"
+            android:layout_weight="4"
+            android:background="#fff"
             android:gravity="center_vertical"
             android:onClick="td"
             android:text="Today's Data"
             android:textAlignment="center"
-            android:textColor="#ffffff"
+            android:textColor="#1ba3c6"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="2"
+        android:background="#ffffff"
+        android:onClick="wk"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_weight="2"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:padding="14dp"
+            android:src="@drawable/donut"
+            android:textAlignment="center"
+            android:textColor="#1ba3c6" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center_vertical"
+            android:text="Weekly Data"
+            android:textColor="#da7c42"
             android:textSize="18dp" />
 
     </LinearLayout>
@@ -32,62 +85,95 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="3"
+        android:background="@drawable/areachart"
+        android:onClick="wk"
+        android:orientation="horizontal">
 
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="Weekly Data"
-            android:gravity="center_vertical"
-            android:background="#49c66a"
-            android:textColor="#ffffff"
-            android:onClick="wk"
-            android:textSize="18dp"
-            android:textAlignment="center"
-            android:layout_height="match_parent" />
 
     </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="4"
+        android:orientation="horizontal">
 
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:text="Condition Analysis"
-            android:gravity="center_vertical"
-            android:background="#f7f06b"
-            android:textColor="#1d1b1b"
+            android:background="#fff"
             android:onClick="ca"
-            android:textSize="18dp"
-            android:textAlignment="center"
-            android:layout_height="match_parent" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginRight="1dp"
+                android:layout_weight="2"
+                android:background="#fff"
+                android:gravity="bottom"
+                android:padding="28dp"
+                android:src="@drawable/analysis"
+                android:textAlignment="center"
+                android:textColor="#1ba3c6" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:padding="2dp"
+                android:text="Condition Analysis"
+                android:textAlignment="center"
+                android:textColor="#1ba3c6"
+                android:textSize="14dp" />
 
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Irrigation Control"
-            android:gravity="center_vertical"
-            android:background="#da7c42"
-            android:textColor="#ffffff"
-            android:onClick="control"
-            android:textSize="18dp"
-            android:textAlignment="center"
-            android:layout_height="match_parent" />
+            android:background="#fff"
+            android:onClick="as"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginRight="1dp"
+                android:layout_weight="2"
+                android:background="#fff"
+                android:gravity="bottom"
+                android:padding="16dp"
+                android:src="@drawable/agro"
+                android:textAlignment="center"
+                android:textColor="#1ba3c6" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:padding="2dp"
+                android:text="Agronomist Suggestion"
+                android:textAlignment="center"
+                android:textColor="#da7c42"
+                android:textSize="14dp" />
+        </LinearLayout>
+
 
     </LinearLayout>
 </LinearLayout>

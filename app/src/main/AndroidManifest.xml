@@ -3,6 +3,8 @@
     package="com.cattronics.mahbub.irrigationmonitor">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -32,25 +34,17 @@
             android:label="Condition Analysis" />
         <activity
             android:name=".temp"
-            android:label="Soil Teperature" />
+            android:label="Temperature Condition" />
         <activity
             android:name=".Humidity"
             android:label="Humidity Condition" />
         <activity
             android:name=".Moisture"
             android:label="Moisture Condition" />
-        <activity
-            android:name=".ManualSensorData"
-            android:label="PH Sensor Data"
-            />
-        <activity
-            android:name=".ambient"
-            android:label="Ambient Temperature"
-            />
-        <activity
-            android:name=".Controll"
-            android:label="Irrigation Control"
-            ></activity>
+
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+
+        <activity android:name=".MyQuestion"></activity>
     </application>
 
 </manifest>

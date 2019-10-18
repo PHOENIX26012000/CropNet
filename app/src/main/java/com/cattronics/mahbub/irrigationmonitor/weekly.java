@@ -30,10 +30,4 @@ public class weekly extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void ambient(View view){
-        Intent i=new Intent(this,ambient.class);
-        i.putExtra("id", 32);
-        startActivity(i);
-    }
-
 }

@@ -44,6 +44,8 @@ public class temp extends AppCompatActivity {
         }else if (Id==21){
             url ="https://kohinurjosna.pythonanywhere.com/irrigation/default/wtemp.json";
         }
+
+
         final ProgressDialog loading = ProgressDialog.show(temp.this,"Loading Feeds","Please wait",false,false);
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
@@ -85,11 +87,10 @@ public class temp extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         loading.dismiss();
-                        Toast.makeText(temp.this,"An unexpected error occurred",Toast.LENGTH_LONG).show();
+                        Toast.makeText(temp.this, "An unexpected error occurred", Toast.LENGTH_LONG).show();
 
                     }
                 });
-
 // Access the RequestQueue through your singleton class.
         MySingleton.getInstance(temp.this).addTorequestrue(jsObjRequest);
 

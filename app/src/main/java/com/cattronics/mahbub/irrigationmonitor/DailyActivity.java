@@ -29,10 +29,5 @@ public class DailyActivity extends AppCompatActivity {
         i.putExtra("id", 22);
         startActivity(i);
     }
-    public void ambient(View view){
-        Intent i=new Intent(this,ambient.class);
-        i.putExtra("id", 31);
-        startActivity(i);
-    }
 
 }
